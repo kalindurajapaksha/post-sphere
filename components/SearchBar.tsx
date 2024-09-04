@@ -6,8 +6,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Input } from "./ui/input";
 import { RootState } from "@/lib/store";
+import { useTranslations } from "next-intl";
 
 const SearchBar = () => {
+  const t = useTranslations("SearchBar");
   const preservedSearchText = useSelector(
     (state: RootState) => state.posts.searchText
   );
@@ -24,7 +26,7 @@ const SearchBar = () => {
     <Input
       type="text"
       className="w-[50%]"
-      placeholder="Search"
+      placeholder={t("search")}
       onChange={handleSearch}
       value={searchText}
     />

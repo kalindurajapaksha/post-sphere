@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "./ModeToggle";
 import SearchBar from "./SearchBar";
+import LocaleSwitcherSelect from "./LocaleSwitcherSelect";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -13,8 +14,14 @@ const Navbar = () => {
         PostSphere
       </Link>
       {pathname === "/" && <SearchBar />}
-      <div className="lg:flex-1 flex justify-end">
+      <div className="lg:flex-1 flex justify-end gap-1">
         <ModeToggle />
+        <LocaleSwitcherSelect
+          items={[
+            { value: "en", label: "English" },
+            { value: "ar", label: "العربية" },
+          ]}
+        />
       </div>
     </nav>
   );

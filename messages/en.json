@@ -1,0 +1,14 @@
+{
+  "ModeToggle": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle-theme": "Toggle theme"
+  },
+  "SearchBar": {
+    "search": "Search"
+  },
+  "System": {
+    "error": "Error"
+  }
+}

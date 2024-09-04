@@ -13,7 +13,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const PostDetails = ({ params }: { params: { id: string } }) => {
-  console.log("🚀 ~ PostDetails ~ params:", params);
   const postName = useSearchParams().get("name");
   const dispatch = useDispatch<AppDispatch>();
   const { selectedPost: post, status } = useSelector(

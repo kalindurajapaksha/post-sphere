@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import { getLocale, getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +14,16 @@ export const metadata: Metadata = {
   description: "Discover posts",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
+  const messages = await getMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -27,12 +32,14 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StoreProvider>
-            <main className="flex justify-center">
-              <div className="container flex flex-col items-center">
-                <Navbar />
-                {children}
-              </div>
-            </main>
+            <NextIntlClientProvider messages={messages}>
+              <main className="flex justify-center">
+                <div className="container flex flex-col items-center">
+                  <Navbar />
+                  {children}
+                </div>
+              </main>
+            </NextIntlClientProvider>
           </StoreProvider>
         </ThemeProvider>
       </body>

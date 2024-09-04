@@ -1,0 +1,14 @@
+{
+  "ModeToggle": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام",
+    "toggle-theme": "تبديل السمة"
+  },
+  "SearchBar": {
+    "search": "بحث"
+  },
+  "System": {
+    "error": "خطأ"
+  }
+}
