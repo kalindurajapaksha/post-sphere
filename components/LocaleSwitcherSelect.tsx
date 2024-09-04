@@ -11,14 +11,19 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-type Props = {
-  items: Array<{ value: string; label: string }>;
+type LangItemType = { value: string; label: string; dir: "rtl" | "ltr" };
+
+type LocaleSwitcherSelectProps = {
+  items: LangItemType[];
 };
 
-export default function LocaleSwitcherSelect({ items }: Props) {
-  function onChange(value: string) {
-    const locale = value as Locale;
+export default function LocaleSwitcherSelect({
+  items,
+}: LocaleSwitcherSelectProps) {
+  function onChange(value: LangItemType) {
+    const locale = value.value as Locale;
     setUserLocale(locale);
+    document.dir = value.dir;
   }
 
   return (
@@ -30,10 +35,7 @@ export default function LocaleSwitcherSelect({ items }: Props) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {items.map((item) => (
-          <DropdownMenuItem
-            key={item.value}
-            onClick={() => onChange(item.value)}
-          >
+          <DropdownMenuItem key={item.value} onClick={() => onChange(item)}>
             {item.label}
           </DropdownMenuItem>
         ))}

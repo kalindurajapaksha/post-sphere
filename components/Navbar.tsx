@@ -18,8 +18,8 @@ const Navbar = () => {
         <ModeToggle />
         <LocaleSwitcherSelect
           items={[
-            { value: "en", label: "English" },
-            { value: "ar", label: "العربية" },
+            { value: "en", label: "English", dir: "ltr" },
+            { value: "ar", label: "العربية", dir: "rtl" },
           ]}
         />
       </div>
