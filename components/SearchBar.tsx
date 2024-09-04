@@ -1,0 +1,34 @@
+"use client";
+
+import { setSearchTextAction } from "@/lib/features/posts/postSlice";
+import { useDebounce } from "@/lib/hooks";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Input } from "./ui/input";
+import { RootState } from "@/lib/store";
+
+const SearchBar = () => {
+  const preservedSearchText = useSelector(
+    (state: RootState) => state.posts.searchText
+  );
+  const [searchText, setSearchText] = useState<string>(preservedSearchText);
+  const debouncedSearchText = useDebounce<string>(searchText, 500);
+  const dispatch = useDispatch();
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
+  useEffect(() => {
+    dispatch(setSearchTextAction(debouncedSearchText));
+  }, [debouncedSearchText, dispatch]);
+  return (
+    <Input
+      type="text"
+      className="w-[50%]"
+      placeholder="Search"
+      onChange={handleSearch}
+      value={searchText}
+    />
+  );
+};
+
+export default SearchBar;
