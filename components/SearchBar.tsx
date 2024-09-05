@@ -20,7 +20,6 @@ const SearchBar = () => {
     setSearchText(e.target.value);
   };
   useEffect(() => {
-    console.log("debouncedSearchText", debouncedSearchText);
     dispatch(setSearchTextAction(debouncedSearchText));
   }, [debouncedSearchText]);
   return (
