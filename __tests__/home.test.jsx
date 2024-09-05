@@ -1,19 +1,11 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import { rootReducer } from "@/lib/store"; // Adjust import based on your store setup
-import Home from "../components/Home";
 import { ResponseStatus } from "@/types/common";
-import { AppDispatch } from "@/lib/store";
-import {
-  setPostsAction,
-  getPostsBySearchText,
-} from "@/lib/features/posts/postSlice";
-import { Post } from "@/types/common";
-import postReducer from "../lib/features/posts/postSlice";
+import { configureStore } from "@reduxjs/toolkit";
 import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { Provider } from "react-redux";
+import Home from "../components/Home";
+import postReducer from "../lib/features/posts/postSlice";
 
 const mockStore = (initialState) => {
   return configureStore({

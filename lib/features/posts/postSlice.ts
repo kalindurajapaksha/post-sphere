@@ -1,5 +1,3 @@
-// import { createSlice } from "@reduxjs/toolkit";
-
 import { fetchPostById, fetchPosts } from "@/api/posts";
 import { Post, PostsState, ResponseStatus } from "@/types/common";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
