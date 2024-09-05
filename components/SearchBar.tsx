@@ -21,7 +21,7 @@ const SearchBar = () => {
   };
   useEffect(() => {
     dispatch(setSearchTextAction(debouncedSearchText));
-  }, [debouncedSearchText]);
+  }, [debouncedSearchText, dispatch]);
   return (
     <Input
       type="text"
