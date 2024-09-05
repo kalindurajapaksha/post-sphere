@@ -20,7 +20,7 @@ const PostDetails = ({ params }: { params: { id: string } }) => {
   );
   useEffect(() => {
     dispatch(getPostById(params.id as string));
-  }, [dispatch]);
+  }, []);
 
   if (status === ResponseStatus.FAILED) throw new Error("Something went wrong");
 
