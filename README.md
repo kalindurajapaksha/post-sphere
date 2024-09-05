@@ -26,15 +26,19 @@ pnpm dev
 bun dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+Visit [https://post-sphere-three.vercel.app/](https://post-sphere-three.vercel.app/) to see the Vercel-deployed app.
+
 ## Technologies used
 
 - NextJS
 - Typescript
 - Tailwind CSS
 - [Shadcn](https://ui.shadcn.com/): For import Tailwind styled components
-- Next-init: For Localization
-- ReduxToolkit: For State Management
+- [Next-init](https://next-intl-docs.vercel.app/): For Localization
+- [ReduxToolkit](https://redux-toolkit.js.org/): For State Management
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Assumptions
 
-Visit [https://post-sphere-three.vercel.app/](https://post-sphere-three.vercel.app/) to see the Vercel deployed app.
+- The posts will not be updated frequently
