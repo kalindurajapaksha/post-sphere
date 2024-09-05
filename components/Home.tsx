@@ -34,8 +34,8 @@ const Home = ({ initialPosts }: HomePageProps) => {
       <div className="container grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {Array(30)
           .fill(0)
-          .map(() => (
-            <HomePageSkeleton />
+          .map((_, index) => (
+            <HomePageSkeleton key={index} />
           ))}
       </div>
     );
