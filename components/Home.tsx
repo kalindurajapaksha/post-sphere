@@ -8,6 +8,7 @@ import { AppDispatch, RootState } from "@/lib/store";
 import { Post, ResponseStatus } from "@/types/common";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import HomePageSkeleton from "./HomePageSkeleton";
 import PostItem from "./PostItem";
 
 interface HomePageProps {
@@ -21,17 +22,31 @@ const Home = ({ initialPosts }: HomePageProps) => {
   );
 
   useEffect(() => {
-    if (initialPosts.length > 0 && searchText === "") {
+    if (searchText === "") {
       dispatch(setPostsAction(initialPosts));
     } else {
       dispatch(getPostsBySearchText(searchText));
     }
   }, [searchText]);
 
+  if (status === ResponseStatus.LOADING) {
+    console.log("fdafasfsadfds");
+    return (
+      <div className="container grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {Array(30)
+          .fill(0)
+          .map(() => (
+            <HomePageSkeleton />
+          ))}
+      </div>
+    );
+  }
+
   return (
     <div className="container grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {(initialPosts.length > 0 || status === ResponseStatus.SUCCESS) &&
-        posts.map((post) => <PostItem key={post.id} post={post} />)}
+      {posts.map((post) => (
+        <PostItem key={post.id} post={post} />
+      ))}
     </div>
   );
 };

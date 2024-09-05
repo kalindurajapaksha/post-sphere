@@ -7,12 +7,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getPostById } from "@/lib/features/posts/postSlice";
 import { AppDispatch, RootState } from "@/lib/store";
 import { ResponseStatus } from "@/types/common";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const PostDetails = ({ params }: { params: { id: string } }) => {
+  const t = useTranslations("PostDetails");
   const postName = useSearchParams().get("name");
   const dispatch = useDispatch<AppDispatch>();
   const { selectedPost: post, status } = useSelector(
@@ -38,9 +40,15 @@ const PostDetails = ({ params }: { params: { id: string } }) => {
       <div className="w-full flex justify-between">
         <h1 className="pb-6 text-xl font-light">{post.name}</h1>
         <div>
-          <Badge>Cuisine: {post.cuisine}</Badge>
-          <Badge>Calories: {post.caloriesPerServing}</Badge>
-          <Badge>Difficulty: {post.difficulty}</Badge>
+          <Badge>
+            {t("cuisine")}: {post.cuisine}
+          </Badge>
+          <Badge>
+            {t("calories")}: {post.caloriesPerServing}
+          </Badge>
+          <Badge>
+            {t("difficulty")}: {post.difficulty}
+          </Badge>
         </div>
       </div>
       <Card className="w-[100%] mt-2 flex">
@@ -56,8 +64,10 @@ const PostDetails = ({ params }: { params: { id: string } }) => {
         <CardContent className="flex-1">
           <Tabs defaultValue="ingredients">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="ingredients">Ingredients</TabsTrigger>
-              <TabsTrigger value="instructions">Instructions</TabsTrigger>
+              <TabsTrigger value="ingredients">{t("ingredients")}</TabsTrigger>
+              <TabsTrigger value="instructions">
+                {t("instructions")}
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="ingredients">
               <Card>

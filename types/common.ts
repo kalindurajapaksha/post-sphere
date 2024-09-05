@@ -23,3 +23,10 @@ export enum ResponseStatus {
   SUCCESS = "success",
   FAILED = "failed",
 }
+
+export type PostsState = {
+  posts: Post[];
+  searchText: string;
+  status: ResponseStatus;
+  selectedPost: Post | null;
+};

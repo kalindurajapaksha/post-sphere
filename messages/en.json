@@ -10,5 +10,15 @@
   },
   "System": {
     "error": "Error"
+  },
+  "PostItem": {
+    "cuisine": "Cuisine"
+  },
+  "PostDetails": {
+    "cuisine": "Cuisine",
+    "calories": "Calories",
+    "difficulty": "Difficulty",
+    "ingredients": "Ingredients",
+    "instructions": "Instructions"
   }
 }

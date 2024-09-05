@@ -2,11 +2,11 @@
 
 import { setSearchTextAction } from "@/lib/features/posts/postSlice";
 import { useDebounce } from "@/lib/hooks";
+import { RootState } from "@/lib/store";
+import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Input } from "./ui/input";
-import { RootState } from "@/lib/store";
-import { useTranslations } from "next-intl";
 
 const SearchBar = () => {
   const t = useTranslations("SearchBar");
@@ -20,8 +20,9 @@ const SearchBar = () => {
     setSearchText(e.target.value);
   };
   useEffect(() => {
+    console.log("debouncedSearchText", debouncedSearchText);
     dispatch(setSearchTextAction(debouncedSearchText));
-  }, [debouncedSearchText, dispatch]);
+  }, [debouncedSearchText]);
   return (
     <Input
       type="text"

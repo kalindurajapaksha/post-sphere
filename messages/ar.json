@@ -10,5 +10,15 @@
   },
   "System": {
     "error": "خطأ"
+  },
+  "PostItem": {
+    "cuisine": "مطبخ"
+  },
+  "PostDetails": {
+    "cuisine": "مطبخ",
+    "calories": "سعرات حرارية",
+    "difficulty": "صعوبة",
+    "ingredients": "مكونات",
+    "instructions": "تعليمات"
   }
 }

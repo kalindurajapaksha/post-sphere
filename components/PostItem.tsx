@@ -3,11 +3,13 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
+import { useTranslations } from "next-intl";
 
 type PostItemProps = {
   post: Post;
 };
 const PostItem = ({ post }: PostItemProps) => {
+  const t = useTranslations("PostDetails");
   return (
     <Link
       href={{ pathname: `/posts/${post.id}`, query: { name: post.name } }}
@@ -17,7 +19,7 @@ const PostItem = ({ post }: PostItemProps) => {
       <Card>
         <div className="relative w-full h-[200px]">
           <Badge className="absolute bottom-1 right-1 z-10">
-            Cuisine: {post.cuisine}
+            {t("cuisine")}: {post.cuisine}
           </Badge>
           <Image
             src={post.image}
