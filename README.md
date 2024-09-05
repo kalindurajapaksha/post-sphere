@@ -26,6 +26,15 @@ pnpm dev
 bun dev
 ```
 
+## Technologies used
+
+- NextJS
+- Typescript
+- Tailwind CSS
+- [Shadcn](https://ui.shadcn.com/): For import Tailwind styled components
+- Next-init: For Localization
+- ReduxToolkit: For State Management
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Visit [https://post-sphere-three.vercel.app/](https://post-sphere-three.vercel.app/) to see the Vercel deployed app.
