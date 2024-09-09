@@ -27,7 +27,7 @@ const Home = ({ initialPosts }: HomePageProps) => {
     } else {
       dispatch(getPostsBySearchText(searchText));
     }
-  }, [searchText, dispatch]);
+  }, [searchText, dispatch, initialPosts]);
 
   if (status === ResponseStatus.LOADING) {
     return (
