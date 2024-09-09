@@ -1,10 +1,7 @@
 import { fetchPosts } from "@/api/posts";
-import { Post } from "@/types/common";
-import dynamic from "next/dynamic";
-
-const PostContent = dynamic(() => import("@/components/Home"), { ssr: false });
+import Home from "@/components/Home";
 
 export default async function HomePage() {
-  const initialPosts: Post[] = await fetchPosts("");
-  return <PostContent initialPosts={initialPosts} />;
+  const posts = await fetchPosts("");
+  return <Home initialPosts={posts} />;
 }
